@@ -103,5 +103,9 @@
   <ItemGroup>
     <None Include="Resources\delete_delete_exit_1577.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DAL\Scripts\RegistroProductos.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
