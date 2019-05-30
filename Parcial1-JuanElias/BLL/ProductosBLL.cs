@@ -72,5 +72,24 @@ namespace Parcial1_JuanElias.BLL
             }
             return paso;
         }
+        public static Productos Buscar(int id)
+        {
+            Contexto db = new Contexto();
+            Productos productos = new Productos();
+
+            try
+            {
+                productos = db.productos.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return productos;
+        }
     }
 }
