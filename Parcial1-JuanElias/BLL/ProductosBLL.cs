@@ -50,5 +50,27 @@ namespace Parcial1_JuanElias.BLL
             }
             return paso;
         }
+        public static bool Eliminar(int id)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                var eliminar = db.productos.Find(id);
+                db.Entry(eliminar).State = EntityState.Deleted;
+
+                paso = (db.SaveChanges() > 0);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return paso;
+        }
     }
 }
