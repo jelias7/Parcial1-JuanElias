@@ -2,6 +2,7 @@
 using Parcial1_JuanElias.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,26 @@ namespace Parcial1_JuanElias.BLL
             {
                 if (db.productos.Add(productos) != null)
                     paso = db.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return paso;
+        }
+        public static bool Modificar(Productos productos)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                db.Entry(productos).State = EntityState.Modified;
+                paso = (db.SaveChanges() > 0);
             }
             catch (Exception)
             {
