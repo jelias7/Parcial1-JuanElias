@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ProductosBLL.cs" />
+    <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Productos.cs" />
     <Compile Include="UI\Registros\MainForm.cs">
       <SubType>Form</SubType>
