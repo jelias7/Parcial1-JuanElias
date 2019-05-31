@@ -120,6 +120,36 @@ namespace Parcial1_JuanElias
             else
                 MessageBox.Show("Producto no encontrado.");
         }
+
+        private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
+
+            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
+                ValorInventariotextBox.Text = "0";
+
+            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
+                ValorInventariotextBox.Text = "0";
+
+            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
+                ValorInventariotextBox.Text = "0";        
+        }
+
+        private void CostotextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
+
+            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
+                ValorInventariotextBox.Text = "0";
+
+            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
+                ValorInventariotextBox.Text = "0";
+
+            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
+                ValorInventariotextBox.Text = "0";
+        }
     }
     
 }
