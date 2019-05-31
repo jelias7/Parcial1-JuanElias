@@ -53,5 +53,10 @@ namespace Parcial1_JuanElias
 
             return (productos != null);
         }
+
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }

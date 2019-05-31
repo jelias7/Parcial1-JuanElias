@@ -125,6 +125,7 @@
             // 
             this.ValorInventariotextBox.Location = new System.Drawing.Point(104, 178);
             this.ValorInventariotextBox.Name = "ValorInventariotextBox";
+            this.ValorInventariotextBox.ReadOnly = true;
             this.ValorInventariotextBox.Size = new System.Drawing.Size(102, 20);
             this.ValorInventariotextBox.TabIndex = 9;
             // 
@@ -151,6 +152,7 @@
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // Guardarbutton
             // 
