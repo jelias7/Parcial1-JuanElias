@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="DAL\Scripts\RegistroProductos.sql" />
+    <Content Include="DAL\Scripts\ProductosDb.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
