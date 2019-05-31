@@ -58,5 +58,33 @@ namespace Parcial1_JuanElias
         {
             Limpiar();
         }
+
+        private void Guardarbutton_Click(object sender, EventArgs e)
+        {
+            Productos productos;
+            bool paso = false;
+            
+
+            productos = LlenaClase();
+
+
+            if (IDnumericUpDown.Value == 0)
+                paso = ProductosBLL.Guardar(productos);
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
+                {
+                    MessageBox.Show("No se puede guardar un producto que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                paso = ProductosBLL.Modificar(productos);
+            }
+
+            if (paso)
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Limpiar();
+        }
     }
 }
