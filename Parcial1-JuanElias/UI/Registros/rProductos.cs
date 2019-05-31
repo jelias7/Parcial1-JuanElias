@@ -86,5 +86,21 @@ namespace Parcial1_JuanElias
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Limpiar();
         }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            MyErrorProvider.Clear();
+
+            int id;
+            int.TryParse(IDnumericUpDown.Text, out id);
+
+            Limpiar();
+
+            if (ProductosBLL.Eliminar(id))
+                MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MyErrorProvider.SetError(IDnumericUpDown, "No se puede eliminar un usuario que no existe.");
+        }
     }
+    
 }
