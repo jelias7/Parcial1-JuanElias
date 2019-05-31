@@ -101,6 +101,25 @@ namespace Parcial1_JuanElias
             else
                 MyErrorProvider.SetError(IDnumericUpDown, "No se puede eliminar un usuario que no existe.");
         }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            int id;
+            Productos productos = new Productos();
+            int.TryParse(IDnumericUpDown.Text, out id);
+
+            Limpiar();
+
+            productos = ProductosBLL.Buscar(id);
+
+            if (productos != null)
+            {
+                MessageBox.Show("Producto Encontrado.");
+                LlenaCampo(productos);
+            }
+            else
+                MessageBox.Show("Producto no encontrado.");
+        }
     }
     
 }
