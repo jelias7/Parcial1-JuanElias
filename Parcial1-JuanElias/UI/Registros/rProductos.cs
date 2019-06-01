@@ -32,9 +32,9 @@ namespace Parcial1_JuanElias
             Productos productos = new Productos();
             productos.ProductoID = Convert.ToInt32(IDnumericUpDown.Value);
             productos.Descripcion = DescripciontextBox.Text;
-            productos.Costo = Convert.ToInt32(CostotextBox.Text);
+            productos.Costo = Convert.ToSingle(CostotextBox.Text);
             productos.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
-            productos.ValorInventario = Convert.ToInt32(ValorInventariotextBox.Text);
+            productos.ValorInventario = Convert.ToSingle(ValorInventariotextBox.Text);
             return productos;
         }
 
@@ -168,32 +168,32 @@ namespace Parcial1_JuanElias
         {
             
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
 
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";
+                ValorInventariotextBox.Text = "0.0";
 
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = "0";
+                ValorInventariotextBox.Text = "0.0";
 
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";
+                ValorInventariotextBox.Text = "0.0";
             
          
         }
         private void CostotextBox_TextChanged(object sender, EventArgs e)
         {
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
 
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";
+                ValorInventariotextBox.Text = "0.0";
 
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = "0";
+                ValorInventariotextBox.Text = "0.0";
 
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";
+                ValorInventariotextBox.Text = "0.0";
 
             
         }

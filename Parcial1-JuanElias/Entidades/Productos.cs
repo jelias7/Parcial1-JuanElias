@@ -13,16 +13,16 @@ namespace Parcial1_JuanElias.Entidades
         public int ProductoID { get; set; }
         public string Descripcion { get; set; }
         public int Existencia { get; set; }
-        public int Costo { get; set; }
-        public int ValorInventario { get; set; }
+        public float Costo { get; set; }
+        public float ValorInventario { get; set; }
 
         public Productos()
         {
             ProductoID = 0;
             Descripcion = string.Empty;
             Existencia = 0;
-            Costo = 0;
-            ValorInventario = 0;
+            Costo = 0.0f;
+            ValorInventario = 0.0f;
         }
     }
 }
