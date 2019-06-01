@@ -16,7 +16,7 @@ namespace Parcial1_JuanElias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new rProductos());
+            Application.Run(new MainForm());
         }
     }
 }
