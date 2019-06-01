@@ -114,6 +114,7 @@
             this.ExistenciatextBox.Size = new System.Drawing.Size(102, 20);
             this.ExistenciatextBox.TabIndex = 7;
             this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
+            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
             // 
             // CostotextBox
             // 
@@ -122,6 +123,7 @@
             this.CostotextBox.Size = new System.Drawing.Size(102, 20);
             this.CostotextBox.TabIndex = 8;
             this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
+            this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
             // 
             // ValorInventariotextBox
             // 

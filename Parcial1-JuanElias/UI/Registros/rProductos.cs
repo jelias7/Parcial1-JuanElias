@@ -54,6 +54,46 @@ namespace Parcial1_JuanElias
             return (productos != null);
         }
 
+        private bool ValidarGuardar()
+        {
+            bool paso = true;
+            MyErrorProvider.Clear();
+
+            if (DescripciontextBox.Text == string.Empty)
+            {
+                MyErrorProvider.SetError(DescripciontextBox, "El Campo no puede estar vacio.");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
+            if (CostotextBox.Text == string.Empty)
+            {
+                MyErrorProvider.SetError(CostotextBox, "El Campo no puede estar vacio.");
+                CostotextBox.Focus();
+                paso = false;
+            }
+            if (ExistenciatextBox.Text == string.Empty)
+            {
+                MyErrorProvider.SetError(ExistenciatextBox, "El Campo no puede estar vacio.");
+                ExistenciatextBox.Focus();
+                paso = false;
+            }
+
+            return paso;
+        }
+
+        private bool ValidarEliminar()
+        {
+            bool paso = true;
+            MyErrorProvider.Clear();
+
+            if(IDnumericUpDown.Value == 0)
+            {
+                MyErrorProvider.SetError(IDnumericUpDown, "Busque un producto y luego eliminelo.");
+                IDnumericUpDown.Focus();
+                paso = false;
+            }
+            return paso;
+        }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -63,7 +103,8 @@ namespace Parcial1_JuanElias
         {
             Productos productos;
             bool paso = false;
-            
+            if (!ValidarGuardar())
+                return;
 
             productos = LlenaClase();
 
@@ -90,6 +131,8 @@ namespace Parcial1_JuanElias
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             MyErrorProvider.Clear();
+            if (!ValidarEliminar())
+                return;
 
             int id;
             int.TryParse(IDnumericUpDown.Text, out id);
@@ -123,6 +166,7 @@ namespace Parcial1_JuanElias
 
         private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
         {
+            
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
                 ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
 
@@ -133,9 +177,10 @@ namespace Parcial1_JuanElias
                 ValorInventariotextBox.Text = "0";
 
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";        
+                ValorInventariotextBox.Text = "0";
+            
+         
         }
-
         private void CostotextBox_TextChanged(object sender, EventArgs e)
         {
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
@@ -149,6 +194,28 @@ namespace Parcial1_JuanElias
 
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
                 ValorInventariotextBox.Text = "0";
+
+            
+        }
+
+        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
     }
     
