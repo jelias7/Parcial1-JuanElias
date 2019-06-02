@@ -142,7 +142,7 @@ namespace Parcial1_JuanElias
             if (ProductosBLL.Eliminar(id))
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MyErrorProvider.SetError(IDnumericUpDown, "No se puede eliminar un usuario que no existe.");
+                MyErrorProvider.SetError(IDnumericUpDown, "No se puede eliminar un producto que no existe.");
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
