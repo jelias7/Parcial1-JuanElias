@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial1_JuanElias.UI.Consultas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace Parcial1_JuanElias
         private void RegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rProductos prod = new rProductos();
+            prod.Show();
+        }
+
+        private void ConsultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cProductos prod = new cProductos();
             prod.Show();
         }
     }

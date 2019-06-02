@@ -93,6 +93,26 @@ namespace Parcial1_JuanElias.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap refresh_arrow_1546 {
+            get {
+                object obj = ResourceManager.GetObject("refresh_arrow_1546", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_arrows_14418 {
+            get {
+                object obj = ResourceManager.GetObject("refresh_arrows_14418", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Search_find_locate_1542 {
             get {
                 object obj = ResourceManager.GetObject("Search_find_locate_1542", resourceCulture);
