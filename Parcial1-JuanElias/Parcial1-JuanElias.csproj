@@ -125,7 +125,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="DAL\Scripts\DbProductos.sql" />
+    <Content Include="DAL\Scripts\Script.sql" />
     <None Include="Resources\refresh_arrows_14418.png" />
     <None Include="Resources\refresh_arrow_1546.png" />
   </ItemGroup>

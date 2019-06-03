@@ -12,7 +12,7 @@ namespace Parcial1_JuanElias.BLL
 {
     public class InventarioBLL
     {
-        public static bool Guardar(Inventario inventario)
+        public static bool Guardar(Inventarios inventario)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -31,7 +31,7 @@ namespace Parcial1_JuanElias.BLL
             }
             return paso;
         }
-        public static bool Modificar(Inventario inventario)
+        public static bool Modificar(Inventarios inventario)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -51,32 +51,10 @@ namespace Parcial1_JuanElias.BLL
             }
             return paso;
         }
-        public static bool Eliminar(int id)
-        {
-            bool paso = false;
-            Contexto db = new Contexto();
-
-            try
-            {
-                var eliminar = db.inventario.Find(id);
-                db.Entry(eliminar).State = EntityState.Deleted;
-
-                paso = (db.SaveChanges() > 0);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                db.Dispose();
-            }
-            return paso;
-        }
-        public static Inventario Buscar(int id)
+        public static Inventarios Buscar(int id)
         {
             Contexto db = new Contexto();
-            Inventario inventario = new Inventario();
+            Inventarios inventario = new Inventarios();
 
             try
             {
@@ -93,24 +71,5 @@ namespace Parcial1_JuanElias.BLL
             return inventario;
         }
 
-        public static List<Inventario> GetList(Expression<Func<Inventario, bool>> inventario)
-        {
-            List<Inventario> Lista = new List<Inventario>();
-            Contexto db = new Contexto();
-
-            try
-            {
-                Lista = db.inventario.Where(inventario).ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                db.Dispose();
-            }
-            return Lista;
-        }
     }
 }

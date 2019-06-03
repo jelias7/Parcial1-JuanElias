@@ -11,7 +11,7 @@ namespace Parcial1_JuanElias.DAL
     public class Contexto : DbContext
     {
         public DbSet<Productos> productos { get; set; }
-        public DbSet<Inventario> inventario { get; set; }
+        public DbSet<Inventarios> inventario { get; set; }
         public Contexto() : base("ConStr") { }
     }
 }

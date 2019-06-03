@@ -102,6 +102,7 @@ namespace Parcial1_JuanElias
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Productos productos;
+            
             bool paso = false;
             if (!ValidarGuardar())
                 return;
@@ -110,6 +111,7 @@ namespace Parcial1_JuanElias
 
 
             if (IDnumericUpDown.Value == 0)
+            
                 paso = ProductosBLL.Guardar(productos);
             else
             {
@@ -122,7 +124,9 @@ namespace Parcial1_JuanElias
             }
 
             if (paso)
+            {
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Limpiar();
@@ -140,7 +144,10 @@ namespace Parcial1_JuanElias
             Limpiar();
 
             if (ProductosBLL.Eliminar(id))
+            {
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
             else
                 MyErrorProvider.SetError(IDnumericUpDown, "No se puede eliminar un producto que no existe.");
         }
@@ -217,6 +224,7 @@ namespace Parcial1_JuanElias
                 return;
             }
         }
+  
     }
     
 }

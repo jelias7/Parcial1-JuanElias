@@ -21,8 +21,8 @@ namespace Parcial1_JuanElias.Entidades
             ProductoID = 0;
             Descripcion = string.Empty;
             Existencia = 0;
-            Costo = 0.0f;
-            ValorInventario = 0.0f;
+            Costo = 0;
+            ValorInventario = 0;
         }
     }
 }

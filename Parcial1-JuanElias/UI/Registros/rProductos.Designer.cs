@@ -44,8 +44,10 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ValordataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValordataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,21 +99,21 @@
             // 
             this.IDnumericUpDown.Location = new System.Drawing.Point(104, 31);
             this.IDnumericUpDown.Name = "IDnumericUpDown";
-            this.IDnumericUpDown.Size = new System.Drawing.Size(66, 20);
+            this.IDnumericUpDown.Size = new System.Drawing.Size(63, 20);
             this.IDnumericUpDown.TabIndex = 5;
             // 
             // DescripciontextBox
             // 
             this.DescripciontextBox.Location = new System.Drawing.Point(104, 68);
             this.DescripciontextBox.Name = "DescripciontextBox";
-            this.DescripciontextBox.Size = new System.Drawing.Size(275, 20);
+            this.DescripciontextBox.Size = new System.Drawing.Size(255, 20);
             this.DescripciontextBox.TabIndex = 6;
             // 
             // ExistenciatextBox
             // 
             this.ExistenciatextBox.Location = new System.Drawing.Point(104, 104);
             this.ExistenciatextBox.Name = "ExistenciatextBox";
-            this.ExistenciatextBox.Size = new System.Drawing.Size(102, 20);
+            this.ExistenciatextBox.Size = new System.Drawing.Size(82, 20);
             this.ExistenciatextBox.TabIndex = 7;
             this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
             this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
@@ -120,7 +122,7 @@
             // 
             this.CostotextBox.Location = new System.Drawing.Point(104, 142);
             this.CostotextBox.Name = "CostotextBox";
-            this.CostotextBox.Size = new System.Drawing.Size(102, 20);
+            this.CostotextBox.Size = new System.Drawing.Size(82, 20);
             this.CostotextBox.TabIndex = 8;
             this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
             this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
@@ -130,16 +132,16 @@
             this.ValorInventariotextBox.Location = new System.Drawing.Point(104, 178);
             this.ValorInventariotextBox.Name = "ValorInventariotextBox";
             this.ValorInventariotextBox.ReadOnly = true;
-            this.ValorInventariotextBox.Size = new System.Drawing.Size(102, 20);
+            this.ValorInventariotextBox.Size = new System.Drawing.Size(82, 20);
             this.ValorInventariotextBox.TabIndex = 9;
             // 
             // Buscarbutton
             // 
             this.Buscarbutton.Image = global::Parcial1_JuanElias.Properties.Resources.Search_find_locate_1542;
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Buscarbutton.Location = new System.Drawing.Point(204, 23);
+            this.Buscarbutton.Location = new System.Drawing.Point(204, 20);
             this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(75, 33);
+            this.Buscarbutton.Size = new System.Drawing.Size(75, 35);
             this.Buscarbutton.TabIndex = 10;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,11 +191,23 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
+            // ValordataGridView
+            // 
+            this.ValordataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.ValordataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ValordataGridView.GridColor = System.Drawing.SystemColors.Control;
+            this.ValordataGridView.Location = new System.Drawing.Point(48, 2);
+            this.ValordataGridView.Name = "ValordataGridView";
+            this.ValordataGridView.Size = new System.Drawing.Size(20, 26);
+            this.ValordataGridView.TabIndex = 14;
+            this.ValordataGridView.Visible = false;
+            // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 275);
+            this.Controls.Add(this.ValordataGridView);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -212,6 +226,7 @@
             this.Text = "Registro de Productos";
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValordataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,6 +249,7 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        public System.Windows.Forms.DataGridView ValordataGridView;
     }
 }
 

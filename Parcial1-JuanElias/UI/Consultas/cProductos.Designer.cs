@@ -58,6 +58,7 @@
             this.Refrescarbutton.Size = new System.Drawing.Size(55, 55);
             this.Refrescarbutton.TabIndex = 2;
             this.Refrescarbutton.UseVisualStyleBackColor = false;
+            this.Refrescarbutton.Click += new System.EventHandler(this.Refrescarbutton_Click);
             // 
             // cProductos
             // 
