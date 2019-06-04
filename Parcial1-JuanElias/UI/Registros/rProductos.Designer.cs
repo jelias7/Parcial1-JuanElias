@@ -44,10 +44,11 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ValordataGridView = new System.Windows.Forms.DataGridView();
+            this.UbicacioncomboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.addbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ValordataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +114,7 @@
             // 
             this.ExistenciatextBox.Location = new System.Drawing.Point(104, 104);
             this.ExistenciatextBox.Name = "ExistenciatextBox";
-            this.ExistenciatextBox.Size = new System.Drawing.Size(82, 20);
+            this.ExistenciatextBox.Size = new System.Drawing.Size(118, 20);
             this.ExistenciatextBox.TabIndex = 7;
             this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
             this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
@@ -122,7 +123,7 @@
             // 
             this.CostotextBox.Location = new System.Drawing.Point(104, 142);
             this.CostotextBox.Name = "CostotextBox";
-            this.CostotextBox.Size = new System.Drawing.Size(82, 20);
+            this.CostotextBox.Size = new System.Drawing.Size(118, 20);
             this.CostotextBox.TabIndex = 8;
             this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
             this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
@@ -132,7 +133,7 @@
             this.ValorInventariotextBox.Location = new System.Drawing.Point(104, 178);
             this.ValorInventariotextBox.Name = "ValorInventariotextBox";
             this.ValorInventariotextBox.ReadOnly = true;
-            this.ValorInventariotextBox.Size = new System.Drawing.Size(82, 20);
+            this.ValorInventariotextBox.Size = new System.Drawing.Size(118, 20);
             this.ValorInventariotextBox.TabIndex = 9;
             // 
             // Buscarbutton
@@ -152,7 +153,7 @@
             // 
             this.Nuevobutton.Image = global::Parcial1_JuanElias.Properties.Resources.add_insert_plus_1588;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(104, 213);
+            this.Nuevobutton.Location = new System.Drawing.Point(104, 256);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 50);
             this.Nuevobutton.TabIndex = 11;
@@ -165,7 +166,7 @@
             // 
             this.Guardarbutton.Image = global::Parcial1_JuanElias.Properties.Resources.check_ok_accept_apply_1582;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(204, 213);
+            this.Guardarbutton.Location = new System.Drawing.Point(204, 256);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 50);
             this.Guardarbutton.TabIndex = 12;
@@ -178,7 +179,7 @@
             // 
             this.Eliminarbutton.Image = global::Parcial1_JuanElias.Properties.Resources.delete_delete_exit_1577;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(304, 213);
+            this.Eliminarbutton.Location = new System.Drawing.Point(304, 256);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 50);
             this.Eliminarbutton.TabIndex = 13;
@@ -191,23 +192,41 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
-            // ValordataGridView
+            // UbicacioncomboBox
             // 
-            this.ValordataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.ValordataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ValordataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.ValordataGridView.Location = new System.Drawing.Point(48, 2);
-            this.ValordataGridView.Name = "ValordataGridView";
-            this.ValordataGridView.Size = new System.Drawing.Size(20, 26);
-            this.ValordataGridView.TabIndex = 14;
-            this.ValordataGridView.Visible = false;
+            this.UbicacioncomboBox.FormattingEnabled = true;
+            this.UbicacioncomboBox.Location = new System.Drawing.Point(104, 215);
+            this.UbicacioncomboBox.Name = "UbicacioncomboBox";
+            this.UbicacioncomboBox.Size = new System.Drawing.Size(118, 21);
+            this.UbicacioncomboBox.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 215);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Ubicacion";
+            // 
+            // addbutton
+            // 
+            this.addbutton.Location = new System.Drawing.Point(238, 215);
+            this.addbutton.Name = "addbutton";
+            this.addbutton.Size = new System.Drawing.Size(64, 23);
+            this.addbutton.TabIndex = 16;
+            this.addbutton.Text = "+";
+            this.addbutton.UseVisualStyleBackColor = true;
+            this.addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 275);
-            this.Controls.Add(this.ValordataGridView);
+            this.ClientSize = new System.Drawing.Size(391, 318);
+            this.Controls.Add(this.addbutton);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.UbicacioncomboBox);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -226,7 +245,6 @@
             this.Text = "Registro de Productos";
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ValordataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,7 +267,9 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
-        public System.Windows.Forms.DataGridView ValordataGridView;
+        private System.Windows.Forms.ComboBox UbicacioncomboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button addbutton;
     }
 }
 

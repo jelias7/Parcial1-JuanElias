@@ -1,5 +1,6 @@
 ﻿using Parcial1_JuanElias.BLL;
 using Parcial1_JuanElias.Entidades;
+using Parcial1_JuanElias.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -224,7 +225,12 @@ namespace Parcial1_JuanElias
                 return;
             }
         }
-  
+
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            rUbicacion ub = new rUbicacion();
+            ub.Show();
+        }
     }
     
 }
