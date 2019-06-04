@@ -53,13 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\InventarioBLL.cs" />
+    <Compile Include="BLL\InventariosBLL.cs" />
     <Compile Include="BLL\ProductosBLL.cs" />
-    <Compile Include="BLL\UbicacionBLL.cs" />
+    <Compile Include="BLL\UbicacionesBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="Entidades\Inventario.cs" />
+    <Compile Include="Entidades\Inventarios.cs" />
     <Compile Include="Entidades\Productos.cs" />
-    <Compile Include="Entidades\Ubicacion.cs" />
+    <Compile Include="Entidades\Ubicaciones.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -18,6 +18,15 @@ namespace Parcial1_JuanElias
         public rProductos()
         {
             InitializeComponent();
+            ComboBox();
+        }
+        private void ComboBox()
+        {
+            var list = new List<Ubicaciones>();
+            list = UbicacionesBLL.GetList(p => true);
+            UbicacioncomboBox.DataSource = list;
+            UbicacioncomboBox.DisplayMember = "Descripcion";
+            UbicacioncomboBox.ValueMember = "UbicacionId";
         }
         private void Limpiar()
         {
@@ -31,7 +40,7 @@ namespace Parcial1_JuanElias
         private Productos LlenaClase()
         {
             Productos productos = new Productos();
-            productos.ProductoID = Convert.ToInt32(IDnumericUpDown.Value);
+            productos.ProductoId = Convert.ToInt32(IDnumericUpDown.Value);
             productos.Descripcion = DescripciontextBox.Text;
             productos.Costo = Convert.ToSingle(CostotextBox.Text);
             productos.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
@@ -41,7 +50,7 @@ namespace Parcial1_JuanElias
 
         private void LlenaCampo(Productos productos)
         {
-            IDnumericUpDown.Value = productos.ProductoID;
+            IDnumericUpDown.Value = productos.ProductoId;
             DescripciontextBox.Text = productos.Descripcion;
             ExistenciatextBox.Text = productos.Existencia.ToString();
             CostotextBox.Text = productos.Costo.ToString();

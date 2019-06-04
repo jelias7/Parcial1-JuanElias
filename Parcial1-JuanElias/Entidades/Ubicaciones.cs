@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Parcial1_JuanElias.Entidades
 {
-     public class Ubicacion
+     public class Ubicaciones
     {
         [Key]
-        public int id { get; set; }
-        public string descripcion { get; set; }
+        public int UbicacionId { get; set; }
+        public string Descripcion { get; set; }
 
-        public Ubicacion()
+        public Ubicaciones()
         {
-            id = 0;
-            descripcion = string.Empty;
+            UbicacionId = 0;
+            Descripcion = string.Empty;
         }
     }
 }

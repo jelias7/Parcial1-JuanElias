@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Parcial1_JuanElias.BLL
 {
-    public class InventarioBLL
+    public class InventariosBLL
     {
         public static bool Guardar(Inventarios inventario)
         {

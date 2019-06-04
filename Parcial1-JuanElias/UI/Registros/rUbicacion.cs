@@ -29,20 +29,20 @@ namespace Parcial1_JuanElias.UI.Registros
         {
             Limpiar();
         }
-        private void LlenaCampo(Ubicacion ubicacion)
+        private void LlenaCampo(Ubicaciones ubicacion)
         {
-            IDnumericUpDown.Value = ubicacion.id;
-            DescripciontextBox.Text = ubicacion.descripcion;   
+            IDnumericUpDown.Value = ubicacion.UbicacionId;
+            DescripciontextBox.Text = ubicacion.Descripcion;   
         }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id;
-            Ubicacion ubicacion = new Ubicacion();
+            Ubicaciones ubicacion = new Ubicaciones();
             int.TryParse(IDnumericUpDown.Text, out id);
 
             Limpiar();
 
-            ubicacion = UbicacionBLL.Buscar(id);
+            ubicacion = UbicacionesBLL.Buscar(id);
 
             if (ubicacion != null)
             {
@@ -53,21 +53,21 @@ namespace Parcial1_JuanElias.UI.Registros
         }
         private bool ExisteEnLaBaseDeDatos()
         {
-            Ubicacion ubicacion = UbicacionBLL.Buscar((int)IDnumericUpDown.Value);
+            Ubicaciones ubicacion = UbicacionesBLL.Buscar((int)IDnumericUpDown.Value);
 
             return (ubicacion != null);
         }
 
-        private Ubicacion LlenaClase()
+        private Ubicaciones LlenaClase()
         {
-            Ubicacion ubicacion = new Ubicacion();
-            ubicacion.id = Convert.ToInt32(IDnumericUpDown.Value);
-            ubicacion.descripcion = DescripciontextBox.Text;
+            Ubicaciones ubicacion = new Ubicaciones();
+            ubicacion.UbicacionId = Convert.ToInt32(IDnumericUpDown.Value);
+            ubicacion.Descripcion = DescripciontextBox.Text;
             return ubicacion;
         }
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            Ubicacion ubicacion;
+            Ubicaciones ubicacion;
 
             bool paso = false;
 
@@ -79,7 +79,7 @@ namespace Parcial1_JuanElias.UI.Registros
 
             if (IDnumericUpDown.Value == 0)
 
-                paso = UbicacionBLL.Guardar(ubicacion);
+                paso = UbicacionesBLL.Guardar(ubicacion);
             else
             {
                 if (!ExisteEnLaBaseDeDatos())
@@ -87,7 +87,7 @@ namespace Parcial1_JuanElias.UI.Registros
                     MessageBox.Show("No existe.", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = UbicacionBLL.Modificar(ubicacion);
+                paso = UbicacionesBLL.Modificar(ubicacion);
             }
 
             if (paso)
@@ -110,7 +110,7 @@ namespace Parcial1_JuanElias.UI.Registros
 
             Limpiar();
 
-            if (UbicacionBLL.Eliminar(id))
+            if (UbicacionesBLL.Eliminar(id))
             {
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

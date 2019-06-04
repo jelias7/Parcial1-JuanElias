@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Parcial1_JuanElias.BLL
 {
-    public class UbicacionBLL
+    public class UbicacionesBLL
     {
-        public static Ubicacion Buscar(int id)
+        public static Ubicaciones Buscar(int id)
         {
             Contexto db = new Contexto();
-            Ubicacion ubicacion = new Ubicacion();
+            Ubicaciones ubicacion = new Ubicaciones();
 
             try
             {
@@ -31,7 +31,7 @@ namespace Parcial1_JuanElias.BLL
             }
             return ubicacion;
         }
-        public static bool Guardar(Ubicacion ubicacion)
+        public static bool Guardar(Ubicaciones ubicacion)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -50,7 +50,7 @@ namespace Parcial1_JuanElias.BLL
             }
             return paso;
         }
-        public static bool Modificar(Ubicacion ubicacion)
+        public static bool Modificar(Ubicaciones ubicacion)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -94,9 +94,9 @@ namespace Parcial1_JuanElias.BLL
         }
 
 
-        public static List<Ubicacion> GetList(Expression<Func<Ubicacion, bool>> ubicacion)
+        public static List<Ubicaciones> GetList(Expression<Func<Ubicaciones, bool>> ubicacion)
         {
-            List<Ubicacion> Lista = new List<Ubicacion>();
+            List<Ubicaciones> Lista = new List<Ubicaciones>();
             Contexto db = new Contexto();
 
             try

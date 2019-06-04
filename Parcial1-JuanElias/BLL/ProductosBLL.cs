@@ -40,9 +40,9 @@ namespace Parcial1_JuanElias.BLL
             {
                 if (db.productos.Add(productos) != null)
                     paso = db.SaveChanges() > 0;
-                    Inventarios inventario = InventarioBLL.Buscar(1);
-                    inventario.total += productos.ValorInventario;
-                    InventarioBLL.Modificar(inventario);
+                    Inventarios inventario = InventariosBLL.Buscar(1);
+                    inventario.Total += productos.ValorInventario;
+                    InventariosBLL.Modificar(inventario);
             }
             catch (Exception)
             {
@@ -57,15 +57,15 @@ namespace Parcial1_JuanElias.BLL
         public static bool Modificar(Productos productos)
         {
             bool paso = false;
-            Productos product = ProductosBLL.Buscar(productos.ProductoID);
+            Productos product = ProductosBLL.Buscar(productos.ProductoId);
             Contexto db = new Contexto();
             try
             {
                 float resultado = productos.ValorInventario - product.ValorInventario;
 
-                Inventarios inventario = InventarioBLL.Buscar(1);
-                inventario.total += resultado;
-                InventarioBLL.Modificar(inventario);
+                Inventarios inventario = InventariosBLL.Buscar(1);
+                inventario.Total += resultado;
+                InventariosBLL.Modificar(inventario);
 
                 db.Entry(productos).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
@@ -88,9 +88,9 @@ namespace Parcial1_JuanElias.BLL
             try
             {
                 var eliminar = db.productos.Find(id);
-                var Inventario = InventarioBLL.Buscar(1);
-                Inventario.total -= eliminar.ValorInventario;
-                InventarioBLL.Modificar(Inventario);
+                var Inventario = InventariosBLL.Buscar(1);
+                Inventario.Total -= eliminar.ValorInventario;
+                InventariosBLL.Modificar(Inventario);
 
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);

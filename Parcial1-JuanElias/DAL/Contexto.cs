@@ -12,7 +12,7 @@ namespace Parcial1_JuanElias.DAL
     {
         public DbSet<Productos> productos { get; set; }
         public DbSet<Inventarios> inventario { get; set; }
-        public DbSet<Ubicacion> ubicacion { get; set; }
+        public DbSet<Ubicaciones> ubicacion { get; set; }
         public Contexto() : base("ConStr") { }
     }
 }
