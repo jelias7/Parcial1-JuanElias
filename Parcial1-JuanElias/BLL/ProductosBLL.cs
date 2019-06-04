@@ -32,17 +32,37 @@ namespace Parcial1_JuanElias.BLL
             }
             return productos;
         }
+        public static Inventarios LlenaClase()
+        {
+            Inventarios inventario = new Inventarios();
+            inventario.Total = 0;
+            inventario.InventarioId = 1;
+
+            return inventario;
+        }
         public static bool Guardar(Productos productos)
         {
             bool paso = false;
-            Contexto db = new Contexto();
+            Contexto contexto = new Contexto();
+            Inventarios inventario = new Inventarios();
             try
             {
-                if (db.productos.Add(productos) != null)
-                    paso = db.SaveChanges() > 0;
-                    Inventarios inventario = InventariosBLL.Buscar(1);
-                    inventario.Total += productos.ValorInventario;
-                    InventariosBLL.Modificar(inventario);
+                inventario = InventariosBLL.Buscar(1);
+                if (inventario == null)
+                {
+
+                    inventario = LlenaClase();
+                    paso = InventariosBLL.Guardar(inventario);
+
+                }
+
+
+
+                if (contexto.productos.Add(productos) != null)
+                    paso = contexto.SaveChanges() > 0;
+
+                inventario.Total += productos.ValorInventario;
+                InventariosBLL.Modificar(inventario);
             }
             catch (Exception)
             {
@@ -50,8 +70,9 @@ namespace Parcial1_JuanElias.BLL
             }
             finally
             {
-                db.Dispose();
+                contexto.Dispose();
             }
+
             return paso;
         }
         public static bool Modificar(Productos productos)

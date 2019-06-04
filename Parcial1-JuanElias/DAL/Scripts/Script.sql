@@ -7,6 +7,11 @@ ValorInventario float
 );
 
 Create table Inventarios(
-id int,
+InventarioId int,
 total float
+);
+
+Create Table Ubicaciones(
+UbicacionId int,
+Descripcion varchar(30)
 );
