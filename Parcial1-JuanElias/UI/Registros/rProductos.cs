@@ -1,4 +1,5 @@
 ﻿using Parcial1_JuanElias.BLL;
+using Parcial1_JuanElias.DAL;
 using Parcial1_JuanElias.Entidades;
 using Parcial1_JuanElias.UI.Registros;
 using System;
@@ -85,6 +86,12 @@ namespace Parcial1_JuanElias
             {
                 MyErrorProvider.SetError(ExistencianumericUpDown, "El Campo no puede ser 0");
                 ExistencianumericUpDown.Focus();
+                paso = false;
+            }
+            if (Repeticion(DescripciontextBox.Text))
+            {
+                MessageBox.Show("No se puede ingresar un producto ya creado");
+                DescripciontextBox.Focus();
                 paso = false;
             }
 
@@ -217,6 +224,25 @@ namespace Parcial1_JuanElias
 
             if (CostonumericUpDown.Value == 0 && ExistencianumericUpDown.Value == 0)
                 ValorInventariotextBox.Text = "0.0";
+        }
+
+        public static bool Repeticion(string d)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                if (db.productos.Any(p => p.Descripcion.Equals(d)))
+                {
+                    paso = true;
+                }               
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            return paso;
         }
     }
     

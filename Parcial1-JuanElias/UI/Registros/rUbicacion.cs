@@ -1,4 +1,5 @@
 ﻿using Parcial1_JuanElias.BLL;
+using Parcial1_JuanElias.DAL;
 using Parcial1_JuanElias.Entidades;
 using System;
 using System.Collections.Generic;
@@ -129,6 +130,12 @@ namespace Parcial1_JuanElias.UI.Registros
                 DescripciontextBox.Focus();
                 paso = false;
             }
+            if (Repeticion(DescripciontextBox.Text))
+            {
+                MessageBox.Show("No se puede ingresar una ubicacion que ya existe");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
             return paso;
         }
         private bool ValidarEliminar()
@@ -145,6 +152,24 @@ namespace Parcial1_JuanElias.UI.Registros
             return paso;
         }
 
+        public static bool Repeticion(string d)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                if (db.ubicacion.Any(p => p.Descripcion.Equals(d)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
 
     }
     
