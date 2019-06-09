@@ -32,8 +32,8 @@ namespace Parcial1_JuanElias
         {
             IDnumericUpDown.Value = 0;
             DescripciontextBox.Text = string.Empty;
-            CostotextBox.Text = string.Empty;
-            ExistenciatextBox.Text = string.Empty;
+            CostonumericUpDown.Value = 0;
+            ExistencianumericUpDown.Value = 0;
             ValorInventariotextBox.Text = string.Empty;
             MyErrorProvider.Clear();
         }
@@ -42,8 +42,8 @@ namespace Parcial1_JuanElias
             Productos productos = new Productos();
             productos.ProductoId = Convert.ToInt32(IDnumericUpDown.Value);
             productos.Descripcion = DescripciontextBox.Text;
-            productos.Costo = Convert.ToSingle(CostotextBox.Text);
-            productos.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
+            productos.Costo = Convert.ToSingle(CostonumericUpDown.Value);
+            productos.Existencia = Convert.ToInt32(ExistencianumericUpDown.Value);
             productos.ValorInventario = Convert.ToSingle(ValorInventariotextBox.Text);
             return productos;
         }
@@ -52,8 +52,8 @@ namespace Parcial1_JuanElias
         {
             IDnumericUpDown.Value = productos.ProductoId;
             DescripciontextBox.Text = productos.Descripcion;
-            ExistenciatextBox.Text = productos.Existencia.ToString();
-            CostotextBox.Text = productos.Costo.ToString();
+            ExistencianumericUpDown.Value = productos.Existencia;
+            CostonumericUpDown.Value = Convert.ToDecimal(productos.Costo);
             ValorInventariotextBox.Text = productos.ValorInventario.ToString();
         }
 
@@ -75,16 +75,16 @@ namespace Parcial1_JuanElias
                 DescripciontextBox.Focus();
                 paso = false;
             }
-            if (CostotextBox.Text == string.Empty)
+            if (CostonumericUpDown.Value == 0)
             {
-                MyErrorProvider.SetError(CostotextBox, "El Campo no puede estar vacio.");
-                CostotextBox.Focus();
+                MyErrorProvider.SetError(CostonumericUpDown, "El Campo no puede ser 0");
+                CostonumericUpDown.Focus();
                 paso = false;
             }
-            if (ExistenciatextBox.Text == string.Empty)
+            if (ExistencianumericUpDown.Value == 0)
             {
-                MyErrorProvider.SetError(ExistenciatextBox, "El Campo no puede estar vacio.");
-                ExistenciatextBox.Focus();
+                MyErrorProvider.SetError(ExistencianumericUpDown, "El Campo no puede ser 0");
+                ExistencianumericUpDown.Focus();
                 paso = false;
             }
 
@@ -181,64 +181,42 @@ namespace Parcial1_JuanElias
                 MessageBox.Show("Producto no encontrado.");
         }
 
-        private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
-        {
-            
-            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
-
-            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0.0";
-
-            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = "0.0";
-
-            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0.0";
-            
-         
-        }
-        private void CostotextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
-
-            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0.0";
-
-            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = "0.0";
-
-            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0.0";
-
-            
-        }
-
-        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
         private void Addbutton_Click(object sender, EventArgs e)
         {
             rUbicacion ub = new rUbicacion();
             ub.Show();
+        }
+
+        private void CostonumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+            if (CostonumericUpDown.Value > 0 && ExistencianumericUpDown.Value > 0)
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostonumericUpDown.Value) * Convert.ToInt32(ExistencianumericUpDown.Value));
+
+            if (CostonumericUpDown.Value > 0 && ExistencianumericUpDown.Value == 0)
+                ValorInventariotextBox.Text = "0.0";
+
+            if (CostonumericUpDown.Value == 0 && ExistencianumericUpDown.Value > 0)
+                ValorInventariotextBox.Text = "0.0";
+
+            if (CostonumericUpDown.Value == 0 && ExistencianumericUpDown.Value == 0)
+                ValorInventariotextBox.Text = "0.0";
+        }
+
+        private void ExistencianumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+            if (CostonumericUpDown.Value > 0 && ExistencianumericUpDown.Value > 0)
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostonumericUpDown.Value) * Convert.ToInt32(ExistencianumericUpDown.Value));
+
+            if (CostonumericUpDown.Value > 0 && ExistencianumericUpDown.Value == 0)
+                ValorInventariotextBox.Text = "0.0";
+
+            if (CostonumericUpDown.Value == 0 && ExistencianumericUpDown.Value > 0)
+                ValorInventariotextBox.Text = "0.0";
+
+            if (CostonumericUpDown.Value == 0 && ExistencianumericUpDown.Value == 0)
+                ValorInventariotextBox.Text = "0.0";
         }
     }
     
