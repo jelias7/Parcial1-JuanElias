@@ -37,6 +37,7 @@
             // 
             this.ValorTotaltextBox.Location = new System.Drawing.Point(12, 39);
             this.ValorTotaltextBox.Name = "ValorTotaltextBox";
+            this.ValorTotaltextBox.ReadOnly = true;
             this.ValorTotaltextBox.Size = new System.Drawing.Size(211, 20);
             this.ValorTotaltextBox.TabIndex = 0;
             // 
